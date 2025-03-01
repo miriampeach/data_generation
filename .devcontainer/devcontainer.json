@@ -14,15 +14,15 @@
                 "jjjermiah.pixi-vscode",
                 "ms-python.python",
                 "charliermarsh.ruff",
-				        "tamasfe.even-better-toml",
+                "tamasfe.even-better-toml",
                 "mhutchie.git-graph",
                 "GitHub.copilot",
-				        "ryanluker.vscode-coverage-gutters"
+                "ryanluker.vscode-coverage-gutters"
               ]
         }
     },
 	"features": {
-		// "ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/common-utils:2": {},
     },
     "mounts": [
         "source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"
