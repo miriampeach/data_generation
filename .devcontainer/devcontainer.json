@@ -1,32 +1,31 @@
 {
-	"name": "python_template",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": ".."
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"ms-python.pylint",
-				"njpwerner.autodocstring",
-				"charliermarsh.ruff",
-				"mhutchie.git-graph",
-				"eamodio.gitlens",
-				"tamasfe.even-better-toml",
-				"Codium.codium",
-				"ms-azuretools.vscode-docker",
-				"ryanluker.vscode-coverage-gutters"
-			]
-		}
-	},
-	//docker in docker is included in the pixi devcontainer example, but disabling for the moment due to security issues
-	// "features": {
-	//   "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-	// },
-	"mounts": [
-		"source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"
-	],
-	"postCreateCommand": "sudo chown vscode .pixi && pixi install"
+    "name": "python_template",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            "PIXI_VERSION": "v0.41.4"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "jjjermiah.pixi-vscode",
+                "ms-python.python",
+                "charliermarsh.ruff",
+                "tamasfe.even-better-toml",
+                "mhutchie.git-graph",
+                "GitHub.copilot",
+                "ryanluker.vscode-coverage-gutters"
+              ]
+        }
+    },
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+    },
+    "mounts": [
+        "source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"
+    ],
+    "postCreateCommand": "sudo chown vscode .pixi && pixi install"
 }
