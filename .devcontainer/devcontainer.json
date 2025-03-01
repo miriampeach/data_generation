@@ -1,5 +1,5 @@
 {
-    "name": "pixi-project",
+    "name": "python_template",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "..",
@@ -27,5 +27,5 @@
     "mounts": [
         "source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"
     ],
-    "postCreateCommand": "sudo chown vscode .pixi && if [ ! -f pixi.toml ]; then cp /workspaces/pixi-project/pixi.toml .; fi && pixi install"
+    "postCreateCommand": "sudo chown vscode .pixi && pixi install"
 }
