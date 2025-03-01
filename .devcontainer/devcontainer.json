@@ -1,26 +1,29 @@
 {
-    "name": "my-project",
+    "name": "pixi-project",
     "build": {
-      "dockerfile": "Dockerfile",
-      "context": "..",
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            "PIXI_VERSION": "v0.41.4"
+        }
     },
     "customizations": {
-      "vscode": {
-        "settings": {},
-        "extensions": ["ms-python.python", 
-        "charliermarsh.ruff", 
-        "GitHub.copilot",
-        "ms-python.python",
-				"charliermarsh.ruff",
-				"mhutchie.git-graph",
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "jjjermiah.pixi-vscode",
+                "ms-python.python",
+                "charliermarsh.ruff",
 				"tamasfe.even-better-toml",
-				"ms-azuretools.vscode-docker",
-				"ryanluker.vscode-coverage-gutters"]
-      }
+                "mhutchie.git-graph"
+            ]
+        }
     },
-    "features": {
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	"features": {
+		// "ghcr.io/devcontainers/features/common-utils:2": {},
     },
-    "mounts": ["source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"],
-    "postCreateCommand": "sudo chown vscode .pixi && pixi install"
+    "mounts": [
+        "source=${localWorkspaceFolderBasename}-pixi,target=${containerWorkspaceFolder}/.pixi,type=volume"
+    ],
+    "postCreateCommand": "sudo chown vscode .pixi && if [ ! -f pixi.toml ]; then cp /workspaces/pixi-project/pixi.toml .; fi && pixi install"
 }
