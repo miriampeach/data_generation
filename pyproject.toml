@@ -1,7 +1,7 @@
 [project]
-name = "python_template"
+name = "data_generation"
 version = "0.2.0"
-authors = [{ name = "Austin Gregg-Smith", email = "blooop@gmail.com" }]
+authors = [{ name = "miriam", email = "miriamdurazobarba@gmail.com" }]
 description = "A python package template"
 readme = "README.md"
 license = "MIT"
@@ -9,8 +9,8 @@ license = "MIT"
 dependencies = []
 
 [project.urls]
-Source = "https://github.com/blooop/python_template"
-Home = "https://github.com/blooop/python_template"
+Source = "https://github.com/miriampeach/data_generation"
+Home = "https://github.com/miriampeach/data_generation"
 
 [tool.pixi.project]
 channels = ["conda-forge"]
@@ -30,17 +30,17 @@ python = "3.13.*"
 
 
 [tool.pixi.pypi-dependencies]
-python_template = { path = ".", editable = true }
+data_generation = { path = ".", editable = true }
 
 [project.optional-dependencies]
 test = [
-  "pylint>=3.2.5,<=3.3.3",
+  "pylint>=3.2.5,<=3.3.6",
   "pytest-cov>=4.1,<=6.0.0",
-  "pytest>=7.4,<=8.3.4",
-  "hypothesis>=6.104.2,<=6.123.2",
-  "ruff>=0.5.0,<=0.8.6",
-  "coverage>=7.5.4,<=7.6.10",
-  "pre-commit<=4.0.1",
+  "pytest>=7.4,<=8.3.5",
+  "hypothesis>=6.104.2,<=6.130.6",
+  "ruff>=0.5.0,<=0.11.2",
+  "coverage>=7.5.4,<=7.8.0",
+  "pre-commit<=4.2.0",
 ]
 
 [build-system]
@@ -48,7 +48,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-include = ["python_template"]
+include = ["data_generation"]
 
 # Environments
 [tool.pixi.environments]
@@ -75,7 +75,7 @@ coverage-report = "coverage report -m"
 update-lock = "pixi update && git commit -a -m'update pixi.lock' || true"
 push = "git push"
 update-lock-push = { depends-on = ["update-lock", "push"] }
-fix = { depends-on = ["update-lock", "format", "ruff-lint"] }
+fix = { depends-on = ["update-lock", "format", "ruff-lint", "pre-commit"] }
 fix-commit-push = { depends-on = ["fix", "commit-format", "update-lock-push"] }
 ci-no-cover = { depends-on = ["style", "test"] }
 ci = { depends-on = [
