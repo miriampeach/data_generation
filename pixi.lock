@@ -436,15 +436,15 @@ packages:
   name: data-generation
   version: 0.2.0
   path: .
-  sha256: 17d776b27efe09bfdb6245b078df5754ead1152e8afd7e7f1a5ec29e186c3718
+  sha256: 98e88ece9a09509fbcfb0e95ce67f4093919f9368b953fa8d421adbb08f5f17b
   requires_dist:
-  - pylint>=3.2.5,<=3.3.3 ; extra == 'test'
+  - pylint>=3.2.5,<=3.3.6 ; extra == 'test'
   - pytest-cov>=4.1,<=6.0.0 ; extra == 'test'
-  - pytest>=7.4,<=8.3.4 ; extra == 'test'
-  - hypothesis>=6.104.2,<=6.123.2 ; extra == 'test'
-  - ruff>=0.5.0,<=0.8.6 ; extra == 'test'
-  - coverage>=7.5.4,<=7.6.10 ; extra == 'test'
-  - pre-commit<=4.0.1 ; extra == 'test'
+  - pytest>=7.4,<=8.3.5 ; extra == 'test'
+  - hypothesis>=6.104.2,<=6.130.6 ; extra == 'test'
+  - ruff>=0.5.0,<=0.11.2 ; extra == 'test'
+  - coverage>=7.5.4,<=7.8.0 ; extra == 'test'
+  - pre-commit<=4.2.0 ; extra == 'test'
   editable: true
 - kind: pypi
   name: dill
