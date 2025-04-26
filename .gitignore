@@ -170,3 +170,6 @@ log/**
 
 managed_context/metadata.json
 test_suite_analysis/metadata.json
+media/**
+*.mp4
+*.jpg
