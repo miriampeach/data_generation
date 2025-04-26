@@ -1,4 +1,10 @@
-from python_template.basic_class import BasicClass
+from manim import *
 
-bc = BasicClass()
-print(bc.int_var)
+class GrowingCircle(Scene):
+    def construct(self):
+        circle = Circle()
+        circle.set_fill(BLUE, opacity=0.5)
+        
+        self.play(Create(circle))
+        self.play(circle.animate.scale(2))
+        self.wait()
